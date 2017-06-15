@@ -1,14 +1,18 @@
 import requests  #import requests
 import json   #import json
-print ("Welcome" )
 
-city = input("Enter A known City name: ")
+def city():
+	print ("Welcome" )
 
-api_key = ("077936f695f61908cd19a5a2452a97fb") #our public Api-key
+	city = input("Enter A known City name: ")
 
-response = requests.get("http://api.openweathermap.org/data/2.5/weather?q={0}&appid=077936f695f61908cd19a5a2452a97fb".format(city, api_key))  #api call
+	api_key = ("077936f695f61908cd19a5a2452a97fb") #our public Api-key
 
-weather = response.json()
+	response = requests.get("http://api.openweathermap.org/data/2.5/weather?q={0}&appid=077936f695f61908cd19a5a2452a97fb".format(city, api_key))  #api call
 
-print ("The current weather in {0} is {1}".format(city, weather["weather"][0]["description"])  #the result
-)
+	weather = response.json()
+
+	print ("The current weather in {0} is {1}".format(city, weather["weather"][0]["description"])  #the result
+	)
+if __name__ == "__main__":
+	city()
